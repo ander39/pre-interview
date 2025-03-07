@@ -6,6 +6,4 @@ Instructions for run-queries:
 
 run-queries takes a folder of queries runs cvc5 on each querie
 
-I think that the code may not work on your computer, even if I am able to get it into a working state.
-
-My code is supposed to use the subprocess and os libraries to traverse through the "queries" folder. I then use the run method in the subprocess library to run the cvc5.exe on each file.
+The code should now work accross multiple computers. To use my code, you should have the queries, run-queries.py, and cvc5.exe in the same directory. Then, if you run the Python code, run-queries.py, the process of applying the solver to each query should begin. I have it set to time out after 60 seconds per query, and it will print the results of the solver in the terminal.
