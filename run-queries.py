@@ -1,13 +1,16 @@
 import os
 import subprocess
+import csv
 
-QUERY_FOLDER = "C:/Users/willj/git/pre-interview/queries"
-SOLVER_PATH = "C:/Users/willj/git/cvc5-Win64-x86_64-static/bin"
+QUERY_FOLDER = "queries"
+SOLVER_PATH = "cvc5"
 
 for query_file in os.listdir(QUERY_FOLDER):     #loops through all query files in the "queries" folder
-    #print(query_file)
-    result = subprocess.run(["executable",query_file], capture_output=True, text=True, check=True)  #I am having a problem with the arguments in this, but I can not figure it out
-    #print(result)
+    print(query_file)
+    query_path = os.path.join(QUERY_FOLDER, query_file) #gets the full path of the current smt file
+    result = subprocess.run([SOLVER_PATH, "--tlimit=60000", query_path], text=True, capture_output=False) #This runs the solver on the current file
+    print(result)
+
 
     #need code to write the result to a list or directly to a csv
 
